@@ -7,7 +7,6 @@ export default function Navbar() {
         <div className='nav-links'>
             <ul>
                 <li><a href="/">HOME</a></li>
-                <li><a href="/about">ABOUT</a></li>
                 <li><a href="/builder">BUILD RESUME</a></li>
                 <li><a href="/login">LOGIN</a></li>
             </ul>
