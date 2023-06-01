@@ -1,6 +1,8 @@
 import React from 'react'
+import './loginForm.css'
 
-export default function Login() {
+export default function Login(props) {
+    props.onLinkClick("other")
   return (
     <div className='loginPage'>
         <div className='loginCard'>

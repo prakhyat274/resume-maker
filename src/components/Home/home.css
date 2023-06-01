@@ -1,0 +1,74 @@
+.header{
+    min-height: 100vh;
+      background-position: center;
+      background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header h1{
+      font-size: 62px;
+  }
+  
+  .header p{
+      margin: 10px 0 40px;
+      font-size: 14px;
+      color: white;
+  }
+  
+  .btn{
+    padding: 15px 30px;
+    border: 1px solid white;
+    transition: 0.3s;
+  }
+  
+  .btn:hover{
+    border: 1px solid orangered;
+    background-color: orangered;
+  }
+  
+  .headerDetail{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .headerDetail h1{
+    margin: 10px;
+  }
+  
+  .headerDetail p{
+    text-align: center;
+  }
+  
+  .templateDisplay img{
+    height: 275px;
+    width: 175px;
+    margin: 10px 20px;
+  }
+  
+  .headerFeatures{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .featureCard{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .featureCard img{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .featureCard p{
+    text-align: center;
+  }

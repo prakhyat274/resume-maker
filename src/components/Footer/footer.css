@@ -1,0 +1,16 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .footer hr{
+    width: auto;
+  
+  }
+  .footer p{
+    text-align: center;
+    padding: 15px;
+      font-size: 25px;
+      font-weight: 500;
+  }
