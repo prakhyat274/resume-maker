@@ -1,91 +1,118 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './builder.css'
 
 export default function Builder(props) {
   props.onLinkClick("other")
+  const [inputTab,setInputTab] = useState("personal")
+
+  const onInfoTabClick = (inputTabValue) =>{
+    setInputTab(inputTabValue)
+  }
+
   return (
     <div className='builderPage'>
       <div className='customise'>
         <div className='customiseCard'>
-          <button className='infoTab'>Personal Information</button>
-          <button className='infoTab'>Summary</button>
-          <button className='infoTab'>Education</button>
-          <button className='infoTab'>Skills</button>
-          <button className='infoTab'>Projects</button>
-          <button className='infoTab'>Work Experience</button>
-          <button className='infoTab'>Interests</button>
+          <button onClick={()=>onInfoTabClick("personal")}className = "infoTab" >Personal Information</button>
+          <button onClick={()=>onInfoTabClick("summary")}className = "infoTab" >Summary</button>
+          <button onClick={()=>onInfoTabClick("education")}className = "infoTab" >Education</button>
+          <button onClick={()=>onInfoTabClick("skill")}className = "infoTab" >Skills</button>
+          <button onClick={()=>onInfoTabClick("project")}className = "infoTab" >Projects</button>
+          <button onClick={()=>onInfoTabClick("work")}className = "infoTab" >Work Experience</button>
+          <button onClick={()=>onInfoTabClick("interest")}className = "infoTab" >Interests</button>
         </div>
         <div className='detailTab'>
-          <h3 style={{margin:"10px 5px"}}>Personal Information</h3>
-          <div className='inputField'>
-            <label>Full Name</label>
-            <input type="text" placeholder='Full Name'/>
-          </div>
-          <div className='inputField'>
-            <label>Phone Number</label>
-            <input type="text" placeholder='Enter Phone Number'/>
-          </div>
-          <div className='inputField'>
-            <label>LinkedIn</label>
-            <input type="text" placeholder='LinkedIn Username'/>
+          <div className={`${inputTab === "personal"?"active":"hidden"}`}>
+            <h3>Personal Information</h3>
+            <div className='inputField'>
+              <label>Full Name</label>
+              <input type="text" placeholder='Full Name'/>
+            </div>
+            <div className='inputField'>
+              <label>Phone Number</label>
+              <input type="text" placeholder='Enter Phone Number'/>
+            </div>
+            <div className='inputField'>
+              <label>LinkedIn</label>
+              <input type="text" placeholder='LinkedIn Username'/>
+            </div>
           </div>
 
           {/* Summary Section */}
-          <h3 style={{margin:"10px 5px"}}>Summary</h3>
-          <div className='inputField'>
-            <textarea placeholder='Tell us about yourself'></textarea>
+          <div className={`${inputTab === "summary"?"active":"hidden"}`}>
+            <h3>Summary</h3>
+            <div className='inputField'>
+              <textarea placeholder='Tell us about yourself'></textarea>
+            </div>
           </div>
 
           {/* Education Section */}
-          <h3 style={{margin:"10px 5px"}}>Education</h3>
-          <div className='inputField'>
-            <label>Education Title</label>
-            <input type='text' placeholder='e.g XYZ College, Major Computer Science'/>
-            <label>Education Summary</label>
-            <textarea placeholder='e.g 2023 Grad, 5 GPA....'></textarea>
-            <button className='addButton infoTab'>Add +</button>
+          <div className={`${inputTab === "education"?"active":"hidden"}`}>
+            <h3>Education</h3>
+            <div className='inputField'>
+              <label>Education Title</label>
+              <input type='text' placeholder='e.g XYZ College, Major Computer Science'/>
+              <br />
+              <label>Education Summary</label>
+              <textarea placeholder='e.g 2023 Grad, 5 GPA....'></textarea>
+            </div>
+            <button className='addButton'>Add +</button>
           </div>
 
           {/* Skill Section */}
-          <h3 style={{margin:"10px 5px"}}>Skills</h3>
-          <div className='inputField'>
-            <input type="text" placeholder='Enter Skill Title'/>
-            <input type="text" placeholder='Enter Skill Title'/>
-            <input type="text" placeholder='Enter Skill Title'/>
-            <button className='addButton infoTab'>Add +</button>
+          <div className={`${inputTab === "skill"?"active":"hidden"}`}>
+            <h3>Skills</h3>
+            <div className='inputField'>
+              <input type="text" placeholder='Enter Skill Title'/></div>
+            <div className='inputField'>
+              <input type="text" placeholder='Enter Skill Title'/></div>
+            <div className='inputField'>
+              <input type="text" placeholder='Enter Skill Title'/></div>
+              <button className='addButton'>Add +</button>
           </div>
 
           {/* Project Section */}
-          <h3 style={{margin:"10px 5px"}}>Projects</h3>
-          <div className='inputField'>
-            <label>Project Title</label>
-            <input type='text' placeholder='Enter Here'/>
-            <label>Project Summary</label>
-            <textarea placeholder='Describe your Project'></textarea>
-            <button className='addButton infoTab'>Add +</button>
+          <div className={`${inputTab === "project"?"active":"hidden"}`}>
+            <h3>Projects</h3>
+            <div className='inputField'>
+              <label>Project Title</label>
+              <input type='text' placeholder='Enter Here'/>
+              <br />
+              <label>Project Summary</label>
+              <textarea placeholder='Describe your Project'></textarea>        
+            </div>
+            <button className='addButton'>Add +</button>
           </div>
 
           {/* Experience Section */}
-          <h3 style={{margin:"10px 5px"}}>Work Experience</h3>
-          <div className='inputField'>
-            <label>Job Title</label>
-            <input type='text' placeholder='Enter Here'/>
-            <label>Job Summary</label>
-            <textarea placeholder='Describe your Work'></textarea>
-            <button className='addButton infoTab'>Add +</button>
+          <div className={`${inputTab === "work"?"active":"hidden"}`}>
+            <h3>Work Experience</h3>
+            <div className='inputField'>
+              <label>Job Title</label>
+              <input type='text' placeholder='Enter Here'/>
+              <br />
+              <label>Job Summary</label>
+              <textarea placeholder='Describe your Work'></textarea>
+            </div>
+            <button className='addButton'>Add +</button>
           </div>
 
           {/* Interest Section */}
-          <h3 style={{margin:"10px 5px"}}>Interests</h3>
-          <div className='inputField'>
-            <input type="text" placeholder='Enter Your Interest'/>
-            <input type="text" placeholder='Enter Your Interest'/>
-            <input type="text" placeholder='Enter Your Interest'/>
-            <button className='addButton infoTab'>Add +</button>
+          <div className={`${inputTab === "interest"?"active":"hidden"}`}>
+            <h3>Interests</h3>
+            <div className='inputField'>
+              <input type="text" placeholder='Enter Your Interest'/></div>
+            <div className='inputField'>
+              <input type="text" placeholder='Enter Your Interest'/></div>
+            <div className='inputField'>
+              <input type="text" placeholder='Enter Your Interest'/>
+            </div>
+              <button className='addButton'>Add +</button>
           </div>
+
         </div>
       </div>
-      <div className='prview'></div>
+      <div className='preview'></div>
     </div>
   )
 }
